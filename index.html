@@ -4,36 +4,48 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- SEO -->
+    <!-- Primary SEO -->
     <meta
       name="description"
-      content="Portfolio of Fatima Ghafoor, Frontend Developer specializing in clean, responsive, and user-focused web experiences."
+      content="Fatima Ghafoor is a Full Stack JavaScript Developer interested in building responsive web applications and RESTful APIs using React, Node.js, Express.js, and MongoDB."
     />
     <meta
       name="keywords"
-      content="Frontend Developer, HTML, CSS, JavaScript, Portfolio, Responsive Design, Fatima Ghafoor"
+      content="Fatima Ghafoor, Full Stack JavaScript Developer, React.js, Node.js, Express.js, MongoDB, JavaScript, Web Development"
     />
+    <meta name="author" content="Fatima Ghafoor" />
+    <meta name="theme-color" content="#ffffff" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Fatima Ghafoor | Frontend Developer" />
+    <meta
+      property="og:title"
+      content="Fatima Ghafoor | Full Stack JavaScript Developer"
+    />
     <meta
       property="og:description"
-      content="Explore responsive web projects built with clean code and modern UI practices."
+      content="Explore my web development projects, technical skills, and journey in full-stack JavaScript development."
     />
     <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://fatimaghafoor.github.io/fatima-ghafoor-portfolio/"
+    />
 
-    <title>Fatima Ghafoor | Frontend Developer</title>
+    <!-- Page Title -->
+    <title>Fatima Ghafoor | Full Stack JavaScript Developer</title>
 
     <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Styles -->
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css" />
 
-    <!-- Smooth Scroll -->
+    <!-- Smooth Scrolling -->
     <style>
       html {
         scroll-behavior: smooth;
@@ -42,12 +54,12 @@
   </head>
 
   <body>
-    <!-- Scroll Indicator -->
-    <div id="scroll-indicator"></div>
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-indicator" aria-hidden="true"></div>
 
-    <!-- Header -->
-    <header id="home" role="banner">
-      <nav id="navbar" aria-label="Main Navigation">
+    <!-- Site Header -->
+    <header id="home">
+      <nav id="navbar" aria-label="Main navigation">
         <ul>
           <li><a href="#welcome-section">Home</a></li>
           <li><a href="#about">About</a></li>
@@ -56,60 +68,79 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
 
-        <button id="hamburger" aria-label="Toggle Navigation Menu">
+        <button
+          id="hamburger"
+          type="button"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="navbar"
+        >
           <span></span>
           <span></span>
           <span></span>
         </button>
       </nav>
 
-      <!-- Hero -->
+      <!-- Hero Section -->
       <section id="welcome-section">
         <h1>Hi, I'm <span class="highlight">Fatima Ghafoor</span></h1>
+
         <p>
-          Frontend Developer crafting responsive and user-focused web
-          experiences
+          Full Stack JavaScript Developer exploring the art of building
+          responsive web applications and reliable backend systems.
         </p>
-        <a href="#projects" class="btn">View My Work</a>
+
+        <a href="#projects" class="btn">Explore My Projects</a>
       </section>
     </header>
 
+    <!-- Main Content -->
     <main>
-      <!-- About -->
-      <section id="about">
-        <h2>About Me</h2>
+      <!-- About Section -->
+      <section id="about" aria-labelledby="about-heading">
+        <h2 id="about-heading">About Me</h2>
+
         <p>
-          I’m <strong>Fatima Ghafoor</strong>, a frontend developer passionate
-          about building responsive, accessible, and user-centered web
-          applications. With a background in <strong>Computer Science</strong>,
-          I focus on writing clean, efficient code and transforming ideas into
-          elegant digital experiences using HTML, CSS, and JavaScript.
+          I'm <strong>Fatima Ghafoor</strong>, a Computer Science graduate
+          interested in full-stack web development and software engineering. I
+          work with JavaScript technologies, including React.js, Node.js,
+          Express.js, and MongoDB, to build responsive web interfaces and
+          RESTful APIs. I'm particularly interested in understanding how
+          applications work beyond the user interface, from frontend
+          interactions and HTTP communication to backend logic, authentication,
+          and database operations. My goal is to continuously strengthen my
+          engineering fundamentals and build meaningful, reliable software.
         </p>
       </section>
 
-      <!-- Skills -->
-      <section id="skills">
-        <h2>Skills</h2>
+      <!-- Skills Section -->
+      <section id="skills" aria-labelledby="skills-heading">
+        <h2 id="skills-heading">Technical Skills</h2>
+
         <ul>
           <li>HTML5</li>
-          <li>CSS3 / Tailwind</li>
+          <li>CSS3</li>
+          <li>Tailwind CSS</li>
           <li>JavaScript (ES6+)</li>
-          <li>Responsive Design</li>
+          <li>React.js</li>
+          <li>Node.js</li>
+          <li>Express.js</li>
+          <li>MongoDB</li>
+          <li>REST APIs</li>
           <li>Git & GitHub</li>
-          <li>New Branch </li>
         </ul>
       </section>
 
-      <!-- Projects -->
-      <section id="projects">
-        <h2>Featured Projects</h2>
+      <!-- Projects Section -->
+      <section id="projects" aria-labelledby="projects-heading">
+        <h2 id="projects-heading">Featured Projects</h2>
 
         <div class="projects-grid">
-          <!-- Project 1 -->
+          <!-- Project 1: Music Player -->
           <article class="project-card">
             <img
               src="images/music-player.png"
-              alt="Interactive music player with playback controls"
+              alt="Interactive music player interface with playback controls"
               loading="lazy"
             />
 
@@ -117,8 +148,9 @@
               <h3>Interactive Music Player</h3>
 
               <p class="project-desc">
-                A responsive music player with dynamic controls, enabling smooth
-                playback, pause, and track navigation across devices.
+                A browser-based music player featuring playback controls,
+                playlist navigation, track progress, volume adjustment, and
+                dynamic audio interactions.
               </p>
 
               <p class="tech-stack">HTML • CSS • JavaScript</p>
@@ -145,11 +177,11 @@
             </div>
           </article>
 
-          <!-- Project 2 -->
+          <!-- Project 2: PixelView -->
           <article class="project-card">
             <img
               src="images/image-gallery.png"
-              alt="Responsive image gallery with grid layout"
+              alt="PixelView responsive image gallery"
               loading="lazy"
             />
 
@@ -157,9 +189,8 @@
               <h3>PixelView Image Gallery</h3>
 
               <p class="project-desc">
-                A clean and responsive image gallery featuring structured
-                layouts and smooth hover interactions for enhanced visual
-                experience.
+                A responsive image gallery built with CSS Grid and Flexbox,
+                featuring structured layouts and interactive hover effects.
               </p>
 
               <p class="tech-stack">HTML • CSS • JavaScript</p>
@@ -186,11 +217,11 @@
             </div>
           </article>
 
-          <!-- Project 3 -->
+          <!-- Project 3: Product Landing Page -->
           <article class="project-card">
             <img
               src="images/product-landing-page.png"
-              alt="Responsive product landing page"
+              alt="Responsive product landing page design"
               loading="lazy"
             />
 
@@ -198,20 +229,15 @@
               <h3>Product Landing Page</h3>
 
               <p class="project-desc">
-                A conversion-focused landing page with structured sections and
-                clear call-to-actions, optimized for responsiveness.
+                A product-focused landing page with structured content sections,
+                responsive layouts, and clear calls to action.
               </p>
 
               <p class="tech-stack">HTML • CSS</p>
 
               <div class="project-links">
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="live-link"
-                >
-                  Live Demo
+                <a href="#" class="live-link" aria-disabled="true">
+                  Demo Unavailable
                 </a>
 
                 <a
@@ -226,11 +252,11 @@
             </div>
           </article>
 
-          <!-- Project 4 -->
+          <!-- Project 4: Survey Form -->
           <article class="project-card">
             <img
               src="images/survey-form.png"
-              alt="User-friendly survey form with validation"
+              alt="Survey form interface with structured input fields"
               loading="lazy"
             />
 
@@ -238,20 +264,15 @@
               <h3>Survey Form</h3>
 
               <p class="project-desc">
-                A structured and accessible survey form designed for clean user
-                interaction and input validation.
+                A structured survey form demonstrating semantic HTML, form
+                elements, and user-friendly input layouts.
               </p>
 
               <p class="tech-stack">HTML • CSS</p>
 
               <div class="project-links">
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="live-link"
-                >
-                  Live Demo
+                <a href="#" class="live-link" aria-disabled="true">
+                  Demo Unavailable
                 </a>
 
                 <a
@@ -268,12 +289,13 @@
         </div>
       </section>
 
-      <!-- Contact -->
-      <section id="contact">
-        <h2>Connect With Me</h2>
+      <!-- Contact Section -->
+      <section id="contact" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Let's Connect</h2>
+
         <p>
-          I'm open to collaboration, feedback, and new opportunities. Let’s
-          connect.
+          I'm open to learning opportunities, collaboration, technical
+          discussions, and professional connections.
         </p>
 
         <div class="contact-links">
@@ -305,11 +327,15 @@
       </section>
     </main>
 
-    <!-- Footer -->
+    <!-- Site Footer -->
     <footer>
-      <p>© 2025 Fatima Ghafoor. Built with ❤️ and logic.</p>
+      <p>
+        &copy; <span id="current-year">2026</span> Fatima Ghafoor. Built with
+        curiosity and code.
+      </p>
     </footer>
 
-    <script src="index.js"></script>
+    <!-- JavaScript -->
+    <script src="index.js" defer></script>
   </body>
 </html>
