@@ -1,49 +1,54 @@
-// ===== HAMBURGER MENU =====
 const hamburger = document.getElementById("hamburger");
 const navMenu = document.querySelector("nav ul");
 const navLinks = document.querySelectorAll("nav ul li a");
 
+function closeNavigation() {
+  if (!hamburger || !navMenu) return;
+
+  hamburger.classList.remove("active");
+  navMenu.classList.remove("show");
+  hamburger.setAttribute("aria-expanded", "false");
+}
+
 if (hamburger && navMenu) {
   hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active");
-    navMenu.classList.toggle("show");
+    const isExpanded = hamburger.classList.toggle("active");
 
-    hamburger.setAttribute(
-      "aria-expanded",
-      hamburger.classList.contains("active"),
-    );
+    navMenu.classList.toggle("show", isExpanded);
+    hamburger.setAttribute("aria-expanded", String(isExpanded));
   });
 
   navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      navMenu.classList.remove("show");
-      hamburger.classList.remove("active");
-      hamburger.setAttribute("aria-expanded", "false");
-    });
+    link.addEventListener("click", closeNavigation);
   });
 }
 
-// ===== SCROLL INDICATOR =====
 const scrollIndicator = document.getElementById("scroll-indicator");
 
-let ticking = false;
+if (scrollIndicator) {
+  let ticking = false;
 
-window.addEventListener("scroll", () => {
-  if (!ticking) {
-    window.requestAnimationFrame(() => {
-      const scrollTop = window.scrollY;
-      const docHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
+  function updateScrollIndicator() {
+    const scrollableHeight =
+      document.documentElement.scrollHeight - window.innerHeight;
 
-      const scrollPercent = (scrollTop / docHeight) * 100;
+    const scrollPercent =
+      scrollableHeight > 0 ? (window.scrollY / scrollableHeight) * 100 : 0;
 
-      if (scrollIndicator) {
-        scrollIndicator.style.width = scrollPercent + "%";
-      }
-
-      ticking = false;
-    });
-
-    ticking = true;
+    scrollIndicator.style.width = `${Math.min(scrollPercent, 100)}%`;
+    ticking = false;
   }
-});
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (ticking) return;
+
+      ticking = true;
+      window.requestAnimationFrame(updateScrollIndicator);
+    },
+    { passive: true },
+  );
+
+  updateScrollIndicator();
+}
